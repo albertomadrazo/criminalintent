@@ -8,12 +8,17 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 // asegúrate de escoger la clase correcta a heredar
 public class CrimeFragment extends Fragment{
     private Crime mCrime;
     private EditText mTitleField;
+    private Button mDateButton;
+    private CheckBox mSolvedCheckBox;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -29,7 +34,7 @@ public class CrimeFragment extends Fragment{
         mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // This space intntionally left blank
+                // This space intentionally left blank
             }
 
             @Override
@@ -40,6 +45,19 @@ public class CrimeFragment extends Fragment{
             @Override
             public void afterTextChanged(Editable s) {
                 // This one too
+            }
+        });
+
+        mDateButton = (Button) v.findViewById(R.id.crime_date);
+        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setEnabled(false); // <== disable button.
+
+        mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
+        mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                // Set the crime's solved property
+                mCrime.setSolved(isChecked);
             }
         });
 
