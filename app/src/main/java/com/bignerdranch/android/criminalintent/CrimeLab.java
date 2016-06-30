@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+// This class is a singleton. Only one instance of this class is created for all the app.
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
 
