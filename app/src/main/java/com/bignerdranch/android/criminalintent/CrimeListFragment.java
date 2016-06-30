@@ -26,6 +26,12 @@ public class CrimeListFragment extends Fragment {
     private static final String TAG = "&& CrimeListFragment &&";
 
     @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         Log.i(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
