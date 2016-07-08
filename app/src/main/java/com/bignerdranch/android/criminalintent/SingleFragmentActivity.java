@@ -15,7 +15,6 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
-        Log.i(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
